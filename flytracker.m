@@ -5,14 +5,13 @@ function flytracker
 
     % MASTER VARIABLES
 
-    version=5.1 %MAKE SURE TO UPDATE THIS EVERY TIME A NEW VERSION IS MADE!
+    version=6 %MAKE SURE TO UPDATE THIS EVERY TIME A NEW VERSION IS MADE!
 
-                %5.1 - addressing bug where the program doesn't work for 4
-                %vials.
+                %6 - updated for publication. Changed to output AVGHEIGHTS again.
 
                 %NOTE - make sure to let some flies get all the way to the top
                 %for each segment. Otherwise, the box-drawing algorithm won't
-                %work properly. It's best to have a positive control vial and
+                %work properly. It's best to have a positive control vial on each end and
                 %to let each segment go to at least 4 seconds. 5 probably
                 %better. Note also that after the flies get to the top, they
                 %won't be easy to detect due to the background subtraction
@@ -502,12 +501,12 @@ for i=1:numel(dirlist)
 
         end
 
-    %     csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_avgheights.csv'),avgheights)
-    %     csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_avgheightspersec.csv'), avgheightspersec);
-    % 
-    %     csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_totalheights.csv'),avgheights)
-    %     csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_totalheightspersec.csv'), avgheightspersec);
-    % 
+         %csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_avgheights.csv'),avgheights)
+         %csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_avgheightspersec.csv'), avgheightspersec);
+     
+         %csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_totalheights.csv'),avgheights)
+         %csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_seg',num2str(segment),'_totalheightspersec.csv'), avgheightspersec);
+     
 
 
         % CONCATENATE AVGHEIGHT RESULTS ONTO PREVIOUS RESULTS MATRIX
@@ -601,9 +600,9 @@ for i=1:numel(dirlist)
 
 
     % csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_SUMMARY.csv'), summary);
-    % 
-    % csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_AVGHEIGHTS_FINAL.csv'), ahpsperseg);
-    % csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_TOTALHEIGHTS_FINAL.csv'), thpsperseg);
+     
+     csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_AVGHEIGHTS.csv'), ahpsperseg); 
+     %csvwrite(strcat(dirlist(i).name,'_v',num2str(version),'_TOTALHEIGHTS_FINAL.csv'), thpsperseg);
 
 
     fprintf('\n');
